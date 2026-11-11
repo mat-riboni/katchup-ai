@@ -1,0 +1,24 @@
+{
+  "id": "agent-check",
+  "title": "Rewards, returns and values: agent evaluation",
+  "slides": [
+    {
+      "number": 1,
+      "title": "Immediate reward",
+      "text": "R: a reward received after one step of interaction with an environment.",
+      "transcript": "A reward is numerical feedback from one step. It does not describe the entire future of a trajectory."
+    },
+    {
+      "number": 2,
+      "title": "Discounted return",
+      "text": "G_t = R_(t+1) + gamma R_(t+2) + gamma^2 R_(t+3) + ... . Return combines future rewards.",
+      "transcript": "The return is the sum of future rewards weighted by powers of the discount factor gamma."
+    },
+    {
+      "number": 3,
+      "title": "State value",
+      "text": "v(s) = E[G_t | S_t = s]. Value is the expected return from a state.",
+      "transcript": "We average returns over possible futures. This expected return is the state value."
+    }
+  ]
+}

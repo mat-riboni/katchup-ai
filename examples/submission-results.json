@@ -1,0 +1,207 @@
+{
+  "formatVersion": 1,
+  "externalModelCalls": 0,
+  "examples": [
+    {
+      "id": "lost-context",
+      "persona": "Student who lost the thread",
+      "intent": "What do I need to remember to understand this Bellman equation?",
+      "mode": "prepared UI action",
+      "request": {
+        "slideNumber": 25,
+        "action": "context"
+      },
+      "response": {
+        "text": "The return is an infinite discounted sum (slide 17), and value is its conditional expectation (slide 20). Separate the first term from the rest of that sum.\n\nThe remaining tail is the same kind of return, shifted forward by one step and multiplied by γ.",
+        "route": "prepared"
+      }
+    },
+    {
+      "id": "notation",
+      "persona": "Student new to reinforcement learning",
+      "intent": "What do G_t and gamma mean on this slide?",
+      "mode": "prepared UI action",
+      "request": {
+        "slideNumber": 17,
+        "action": "glossary"
+      },
+      "response": {
+        "entries": [
+          {
+            "key": "slide-17-gt-return",
+            "term": "Gₜ: return",
+            "definition": "The sum of discounted future rewards along a trajectory, starting with the next reward.",
+            "aliases": [],
+            "formula": "Gₜ = Rₜ₊₁ + γRₜ₊₂ + γ²Rₜ₊₃ + …",
+            "origin": "prepared",
+            "slideNumber": 17
+          },
+          {
+            "key": "slide-17-reward-rt-1",
+            "term": "Reward Rₜ₊₁",
+            "definition": "The numerical feedback received after the step at time t. It is one immediate contribution, not the entire future return.",
+            "aliases": [],
+            "origin": "prepared",
+            "slideNumber": 17
+          },
+          {
+            "key": "slide-17-discount-factor",
+            "term": "γ: discount factor",
+            "definition": "A number between 0 and 1 that sets the relative weight of future rewards. When below 1, more distant rewards receive less weight.",
+            "aliases": [],
+            "origin": "prepared",
+            "slideNumber": 17
+          },
+          {
+            "key": "slide-17-myopic-far-sighted",
+            "term": "Myopic / far-sighted",
+            "definition": "A myopic evaluation mainly weights immediate rewards; a far-sighted evaluation gives more weight to distant rewards.",
+            "aliases": [],
+            "origin": "prepared",
+            "slideNumber": 17
+          },
+          {
+            "key": "slide-17-summation",
+            "term": "Σ: summation",
+            "definition": "Add over all elements indicated by the index, such as successor states s′ or actions a.",
+            "aliases": [],
+            "origin": "prepared",
+            "slideNumber": 17
+          }
+        ],
+        "origin": "prepared",
+        "symbols": [
+          {
+            "symbol": "R",
+            "definition": "Expected immediate rewards: a reward function, or the vector of rewards in a matrix equation."
+          },
+          {
+            "symbol": "Rₜ₊₁",
+            "definition": "The reward received after taking the current step. It is one reward, not the full return."
+          },
+          {
+            "symbol": "γ",
+            "definition": "The discount factor, between 0 and 1. Each additional step multiplies a reward’s weight by γ."
+          },
+          {
+            "symbol": "Gₜ",
+            "definition": "The return from time t: the sum of future discounted rewards along a trajectory."
+          },
+          {
+            "symbol": "t",
+            "definition": "The current time-step index. t+1 means one step later."
+          },
+          {
+            "symbol": "k",
+            "definition": "A nonnegative index counting steps into the future in a discounted sum. The immediate reward uses k=0."
+          },
+          {
+            "symbol": "Σ",
+            "definition": "Sum over all values of the index below the symbol, such as actions a or successor states s′."
+          }
+        ]
+      }
+    },
+    {
+      "id": "check-calculation",
+      "persona": "Student checking a worked example",
+      "intent": "Why does the Pub action show 8.4?",
+      "mode": "prepared UI action",
+      "request": {
+        "slideNumber": 46,
+        "action": "explain"
+      },
+      "response": {
+        "text": "**Compare choices within each state**\nAt C1, Study has value −2+8=6, while Facebook has −1+6=5. At C2, Study is 8 and Sleep is 0.\n\nFor Pub at C3, the shown model gives:\n`q*(C3,Pub) = 1 + 0.2×6 + 0.4×8 + 0.4×10 = 9.4`.\n\n**Slide correction:** the diagram prints 8.4, which omits the displayed +1 reward. With that reward included the value is 9.4. Study still wins at C3 because 10 > 9.4.",
+        "route": "prepared"
+      }
+    },
+    {
+      "id": "uncertainty",
+      "persona": "Student studying partial observability",
+      "intent": "How should I interpret a belief such as [0.7, 0.3]?",
+      "mode": "prepared UI action",
+      "request": {
+        "slideNumber": 58,
+        "action": "explain"
+      },
+      "response": {
+        "text": "**Replace certainty with a distribution**\nThe history Hₜ collects past actions, observations and rewards. For a particular history h, b(h) contains one probability per hidden state: `P(Sₜ=sᵢ | Hₜ=h)`.\n\nFor two possible locations, a belief [0.7, 0.3] represents 70% and 30% confidence, not a physical state halfway between them.\n\nUnder the POMDP model, the belief is a sufficient information state for decision-making. Even with finitely many hidden states, the space of such probability vectors is generally continuous.",
+        "route": "prepared"
+      }
+    },
+    {
+      "id": "grounded-agent",
+      "persona": "Student reviewing prerequisites",
+      "intent": "Connect the previous explanation to the current slide.",
+      "mode": "real agent with fixed adapter output",
+      "request": {
+        "slideNumber": 2,
+        "action": "context"
+      },
+      "response": {
+        "lectureId": "agent-check",
+        "slideNumber": 2,
+        "action": "context",
+        "transcriptThroughSlide": 1,
+        "status": "ok",
+        "summary": "Distinguish a one-step reward from a return.",
+        "points": [
+          {
+            "text": "A reward is numerical feedback from one step, not the entire future of a trajectory.",
+            "sourceIds": [
+              "transcript:1"
+            ]
+          }
+        ],
+        "terms": [],
+        "missingContext": [],
+        "sources": [
+          {
+            "id": "transcript:1",
+            "kind": "transcript",
+            "slideNumber": 1,
+            "text": "A reward is numerical feedback from one step. It does not describe the entire future of a trajectory."
+          }
+        ]
+      }
+    },
+    {
+      "id": "future-transcript-boundary",
+      "persona": "Student requesting future material",
+      "intent": "Use the transcript from slide 3 even though the selected slide is 2.",
+      "mode": "real agent input guard",
+      "request": {
+        "slideNumber": 2,
+        "action": "explain",
+        "transcriptThroughSlide": 3
+      },
+      "response": {
+        "error": {
+          "code": "INVALID_CUTOFF",
+          "message": "The available transcript must stop at or before the selected slide."
+        },
+        "httpStatus": 400,
+        "modelCalls": 0
+      }
+    },
+    {
+      "id": "future-citation-boundary",
+      "persona": "Student relying on source-grounded answers",
+      "intent": "Receive only an answer supported by the available lecture sources.",
+      "mode": "real validator with invalid adapter fixture",
+      "request": {
+        "slideNumber": 2,
+        "action": "context"
+      },
+      "response": {
+        "error": {
+          "code": "INVALID_LLM_OUTPUT",
+          "message": "The model did not produce a valid answer after two attempts. The answer does not match the schema, available sources or requested action."
+        },
+        "httpStatus": 502,
+        "adapterCalls": 2
+      }
+    }
+  ]
+}

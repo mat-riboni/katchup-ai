@@ -1,0 +1,30 @@
+{
+  "id": "demo",
+  "title": "Ricerca A*: esempio didattico sintetico",
+  "slides": [
+    {
+      "number": 1,
+      "title": "Il costo del cammino",
+      "text": "g(n): costo del cammino dall'origine al nodo n. Ricerca a costo uniforme: espandi il nodo con g(n) minimo.",
+      "transcript": "Chiamiamo g di n il costo già accumulato dall'origine al nodo n. Non è una previsione del futuro: è il costo del cammino percorso. La ricerca a costo uniforme sceglie il nodo con il valore g più basso."
+    },
+    {
+      "number": 2,
+      "title": "Stimare il costo rimanente",
+      "text": "h(n): euristica, stima del costo dal nodo n a un obiettivo. h*(n): costo minimo effettivo rimanente.",
+      "transcript": "Introduciamo h di n: è una stima del costo che manca per raggiungere l'obiettivo. La chiamiamo euristica. h stella è invece il vero costo minimo rimanente. g guarda il cammino già fatto, h prova a guardare quello che resta."
+    },
+    {
+      "number": 3,
+      "title": "La funzione di valutazione di A*",
+      "text": "A*: f(n) = g(n) + h(n). Espandi il nodo con f(n) minimo. Euristica ammissibile: 0 ≤ h(n) ≤ h*(n).",
+      "transcript": "A stella combina il costo accumulato e la stima rimanente. La somma è f di n, che usiamo per scegliere il nodo da espandere. Un'euristica ammissibile non sovrastima il costo minimo rimanente ed è non negativa."
+    },
+    {
+      "number": 4,
+      "title": "Consistenza",
+      "text": "Euristica consistente: h(n) ≤ c(n,n') + h(n'). c(n,n'): costo dell'arco da n a n'.",
+      "transcript": "La consistenza confronta la stima nel nodo corrente con il costo di un passo e la stima nel successore. c di n n primo è il costo dell'arco, non quello del cammino completo."
+    }
+  ]
+}

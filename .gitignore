@@ -1,0 +1,10 @@
+.env
+node_modules/
+data/*
+!data/.gitkeep
+coverage/
+.DS_Store
+test-results/
+playwright-report/
+
+.runtime/

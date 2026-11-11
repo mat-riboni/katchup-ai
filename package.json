@@ -1,0 +1,23 @@
+{
+  "name": "lecture-assistant-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.mjs",
+    "dev": "node --env-file-if-exists=.env --watch src/server.mjs",
+    "web": "node scripts/serve-web.mjs",
+    "demo": "node scripts/start-demo.mjs",
+    "examples": "node scripts/run-examples.mjs",
+    "test": "node --test",
+    "test:e2e": "playwright test",
+    "import:lecture": "node scripts/import-lecture.mjs",
+    "seed:sample": "node scripts/seed-sample.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}
